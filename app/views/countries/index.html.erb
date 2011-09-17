@@ -1,0 +1,76 @@
+<section>
+  <% form_for 'Country', :url => {:action => :update_list}, :remote => true, :html => {:id => 'country_form' } do %>
+	<h1>Countries</h1>
+
+	<div style="clear:both">Filter: <input type="text" id="filterbox" autocomplete="off">
+		<button id="filter_do">filter</button>
+		<button id="filter_clear">clear</button>
+		<% if @user %><button id="filter_checkall">check all</button><% end %>
+	</div>
+
+
+  <table id="countriestbl">
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+			<% if @user %>
+      <th>Visited</th>
+      <th></th>
+      <th></th>
+			<% end %>
+    </tr>
+
+		<% if @user %>
+			<% @countries.each do |country| %>
+				<tr class="country">
+					<td class="name"><%= country.name %></td>
+					<td><%= country.code %></td>
+					<td class="checkbox"><%= check_box_tag 'visited[]', country[:code], @user.countries.include?(country), :autocomplete => 'off' %></td>
+					<td><%= link_to 'Show', country %></td>
+					<td><%= link_to 'Edit', edit_country_path(country) %></td>
+				</tr>
+			<% end %>
+		<% else %>
+			<% @countries.each do |country| %>
+				<tr class="country">
+					<td class="name"><%= country.name %></td>
+					<td><%= country.code %></td>
+				</tr>
+			<% end %>
+		<% end %>
+  </table>
+	 <div style="text-align:right; padding-top:5px;"><%= submit_tag 'Save' %></div>
+	<% end %>
+
+</section>
+
+
+<script type="text/javascript">
+$(function(){
+	$('#filter_do').click(function(){
+		var filtertext = $('#filterbox').val().toLowerCase();
+		if (filtertext.match(/\S/ig)){
+			$('#countriestbl tr.country').each(function(index, item){
+				if ($(item).children('td.name').text().toLowerCase().match(filtertext)){
+					$(item).show();
+				} else {
+					$(item).hide();
+				}
+			})
+		}
+	});
+
+
+	$('#filter_clear').click(function(){
+		$('#filterbox').val('')
+		$('#countriestbl tr.country').show()
+	});
+
+	$('#filter_checkall').click(function(){
+		$('#countriestbl tr.country:visible').each(function(index, item){
+			$(item).children('td.checkbox').children('input').attr('checked', true);
+		});
+	});
+
+});
+</script>

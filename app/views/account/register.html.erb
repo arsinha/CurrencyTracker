@@ -1,0 +1,22 @@
+<h1>Registration</h1>
+
+<div>Specify your login and password</div>
+<% form_tag('/account/register', :onsubmit => '') do%>
+	<table>
+		<tr>
+			<td>Login</td>
+			<td><%= text_field_tag :name, @params[:name], :autocomplete => :off %></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><%= password_field_tag :password, nil, :autocomplete => :off %></td>
+		</tr>
+		<tr>
+			<td>Repeat password</td>
+			<td><%= password_field_tag :olso_password, nil, :autocomplete => :off %></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align:center;"><%= submit_tag 'Register' %></td>
+		</tr>
+	</table>
+<% end %>

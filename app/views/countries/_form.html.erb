@@ -1,0 +1,38 @@
+<style type="text/css">
+	@import url('/javascripts/jquery/plugins/datepick/jquery.datepick.css')
+</style>
+<%= form_for(@country) do |f| %>
+  <% if @country.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
+
+      <ul>
+      <% @country.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>: <%= f.label @country[:name]%>
+  </div>
+  <div class="field">
+    <%= f.label :code %>: <%= f.label @country[:code] %>
+  </div>
+  <div class="field">
+    <%= f.label 'visited by you' %>: <%= check_box_tag :visited, 1, @user.countries.include?(@country) %>
+  </div>
+	<div class="field">
+		<%= f.label 'visit date' %>: <%= text_field_tag :visit_date, @visit ? @visit.visit_date : '' %>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= javascript_include_tag 'jquery/plugins/datepick/jquery.datepick.pack.js' %>
+<script type="text/javascript">
+	$(function(){
+		$('#visit_date').datepick($.extend({showStatus: true, showOn: 'both', buttonImageOnly: true, buttonImage: '/images/system/calendar.gif', dateFormat: 'yy-mm-dd'}));
+	})
+</script>

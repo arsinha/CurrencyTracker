@@ -1,0 +1,171 @@
+html { 
+  margin: 0px;
+  padding: 0px;
+
+  height: 100%;
+
+  background: #CCC;
+  background-attachment: fixed;
+}
+
+body { 
+  position: relative;
+  margin: 0px auto;
+  padding: 5px 20px;
+  width: 800px;
+  min-height: 100%;
+
+  font-family: Helvetica Neue, Helvetica, Arial, Sans Serif;
+  background-color: #fff; color: #333;
+}
+
+body, p, ol, ul, td {
+  font-size:   0.9em;
+  line-height: 140%;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #777; background-color:#000; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* Tables */
+
+table {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  clear: both;
+
+  border: 1px solid #999;
+}
+
+table th {
+  text-align: left;
+  background: #C2C0F0;
+  color: #FFF;
+}
+
+table th,
+table td {
+  padding: 5px;
+  
+}
+
+/* Flash Notices / Errors */
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* Header / Nav */
+body header {
+  font-size: 1.2em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+  display: block;
+	float: left;
+}
+
+nav ul li {
+  /*display: inline;*/
+	float: left;
+}
+
+body header nav {
+  position: absolute;
+  top: -1px;
+  right: 20px;
+}
+
+body header nav ul li {
+  border: 1px solid #333;
+  /*padding: 10px;*/
+  background: #333;
+	margin-left:5px;
+}
+
+body header nav ul li:hover {
+  background: #666;
+  border: 1px solid #666;
+}
+
+body header nav ul li a {
+	padding:0 10px;
+	display:block;
+	line-height:2em;
+}
+
+nav.top_menu ul li a {color: #ccc; }
+nav.top_menu ul li a:hover {color: #fff;}
+nav.top_menu ul li.active a {color: #E6A8B7	; padding-top:5px; display:block;}
+nav.top_menu ul li {border-radius:0 0 5px 5px; -moz-border-radius:0 0 5px 5px; -webkit-border-radius:0 0 5px 5px; box-shadow:1px 1px 1px; -moz-box-shadow:1px 1px 1px; -webkit-box-shadow:1px 1px 1px; }
+
+body header nav ul li a:link,
+body header nav ul li a:visited {
+  /*color: #FFF;*/
+  text-decoration: none;
+}
+
+body header nav ul li a:hover,
+body header nav ul li a:active {
+  /*color: #FFF;*/
+  text-decoration: none;
+  background: none;
+}
+
+/* flash */
+
+.flash_alert {border:1px solid red; padding:10px; color:red;}
+.flash_notice {border:1px solid green; padding:10px; color:green;}
+
+/* account */
+
+.account {
+	float: left;
+	margin-left: 20px;
+	padding-top: 5px;
+}
+
+section h1 {
+  float: left;
+}
+

@@ -1,0 +1,10 @@
+<h1>Account</h1>
+<% if @user %>
+	<div>You logged as <b><%= @user[:name] %></b></div>
+	<% form_tag :action => :logout do %>
+		<%= submit_tag 'Log out' %>
+	<% end %>
+<% else %>
+	<div>You not logged in</div>
+	<div><%= link_to 'Log in', :action => :login %></div>
+<% end %>

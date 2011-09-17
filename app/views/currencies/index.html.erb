@@ -1,0 +1,25 @@
+<section>
+ <h1>Currencies</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+			<% if @user %>
+      <th>Status</th>
+      <th></th>
+			<% end %>
+    </tr>
+
+  <% @currencies.each do |currency| %>
+    <tr>
+      <td><%= currency.name %></td>
+      <td><%= currency.code %></td>
+			<% if @user %>
+      	<td><%= @user.currencies.include?(currency) ? raw('<b>Collected</b>') : 'Not Collected' %></td>
+      	<td><%= link_to 'Show', currency %></td>
+			<% end %>
+    </tr>
+  <% end %>
+  </table>
+</section>

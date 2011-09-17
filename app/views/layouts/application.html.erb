@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CurrencyTracker</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag 'jquery-1.5.2.min', 'view_controller',  'rails', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<header>
+  <h1>CurrencyTracker</h1>
+  <nav class="top_menu">
+    <ul>
+      <li class="<%= active_item?('currencies') ? 'active' : '' %>"><%= link_to "Currencies", currencies_path %></li>
+      <li class="<%= active_item?('countries') ? 'active' : '' %>"><%= link_to "Countries", countries_path %></li>
+    </ul>
+		<div class="account">
+			<% if @user %>
+				<%= link_to @user[:name], :controller=>:account %>
+			<% else %>
+				<a href="<%= url_for :controller=>:account, :action => :login %>">Log in</a>
+			<% end %>
+		</div>
+  </nav>
+	<% if flash[:alert] %>
+	<div class="flash_alert"><%= flash[:alert] %></div>
+	<% elsif flash[:notice] %>
+	<div class="flash_notice"><%= flash[:notice] %></div>
+	<% end %>
+</header>
+
+<%= yield %>
+
+</body>
+</html>
